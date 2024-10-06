@@ -2,24 +2,25 @@
 import { useState } from 'react'
 import driod from './images/DRIODimages.png' 
 import apple from './images/IPHdownload.png'
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 export default function Votepage() {
-    const[bool, setBool]=useState(false)
+    //const[bool, setBool]=useState(false);
+    const {status, address} = useAccount()
+    const { connectors, connect, error } = useConnect()
+    const { disconnect } = useDisconnect()
    setTimeout(()=>{
-        document.querySelector(".side-talk").style.display="none"
-        setBool(true);
+        document.querySelector("#side-talk").style.display="none";
+        //setBool(true);
     },3000)
     return (
     <div className='voteMain'>
-        {bool&&<div>
-                connect wallet
-            </div>}
-        <div className='side-talk'>
+        <div id='side-talk'>
             <div>Vote your preferred choice!</div>
                 <div style={{textAlign:"center"}}>
                     <div>on Chain</div>
                     <div>LFG!!!</div>
                 </div>
-            </div>
+        </div>
         <div className='vote-A'>
             <div className='driod-div'>
                 <img src={driod} className='driod-image'/>

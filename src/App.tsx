@@ -1,16 +1,20 @@
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import Nav from './components/nav'
 import Votepage from './components/votepage'
+import WalletCont from './components/walletcont'
+import StatusAcc from './status'
 
 function App() {
-  const account = useAccount()
-  const { connectors, connect, status, error } = useConnect()
+  const {address, status} = useAccount()
+  const { connectors, connect, error } = useConnect()
   const { disconnect } = useDisconnect()
 
   return (
       <>
         <Nav/>
-        <Votepage/>
+        {status ==="connected"&&<Votepage/>}
+        {status === "disconnected" && <WalletCont/>}
+        <StatusAcc/>
     {/* <>
       <div>
         <h2>Account</h2>

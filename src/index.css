@@ -62,9 +62,45 @@
     border-radius: 10px 10px 0 0;
     font-size: 19px;
   }
-  .side-talk{
+  #side-talk{
     margin-top: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.877);
+    border: 1px solid rgb(192, 182, 182);
     padding: 7px;
+    font-size: 19px
+  }
+  .wall-cont{
+    display: flex;
+    height: 70vh;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .mn-cont{
+    background-color: white;
+    color: black;
+    width: 150px;
+    text-align: center;
+    padding: 13px 0;
+    font-size: 19px;
+    margin-top: 44%;
+  }
+  .info-text{
+    margin-top: 10%;
+    text-align: center;
+    width: 300px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .tag-arbsty{
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .status-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-size: 28px;
+    font-weight: 700px;
   }
 }
