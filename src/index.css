@@ -1,0 +1,70 @@
+:root {
+  background-color: #181818;
+  color: rgba(255, 255, 255, 0.87);
+  color-scheme: light dark;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media(min-width:300px) and (max-width:510px) {
+  .vt-nav{
+    background-color: rgba(255, 255, 255, 0.87); ;
+    color:black ;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+  .vt-nav>div{
+    font-size: 28px;
+    font-weight: 800;
+  }
+  .vt-nav>div>span{
+    font-weight: 500;
+  }
+  .voteMain{
+    height: 70vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .vote-A{
+    /* background-color: rgba(255, 255, 255, 0.87); */
+    height: 35%;
+    margin-top: 20%;
+    color: #181818;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .driod-image{
+    width: 200px;
+    border-radius: 14px 14px 0 0;
+  }
+  .driod-choice{
+    background-color: rgba(255, 255, 255, 0.973);
+    width: 200px;
+    margin-top: 20px;
+    text-align:center;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px 10px 0 0;
+    font-size: 19px;
+  }
+  .side-talk{
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.877);
+    padding: 7px;
+  }
+}
