@@ -11,6 +11,7 @@ import TotalVote from './totalRes';
 export default function Votepage() {
     const testweb3arb= new Web3('https://sepolia-rollup.arbitrum.io/rpc');
     const {status, address} = useAccount()
+    const [bool, setBool] = useState(false)
     const [web3, setWeb3]= useState(new Web3);
     const { connectors, connect, error } = useConnect()
    setTimeout(()=>{
@@ -43,16 +44,25 @@ export default function Votepage() {
             await contract.methods.addVoteA("a").send(
                 { from: address, gas: 200000}
             );
+            setBool(true)
+            document.querySelector(".voteMain").style.display="none";
            }
             else if(param==="b"){
               await contract.methods.addVoteB("b").send(
                { from: address, gas: 200000}
                 );
+                setBool(true)
+                document.querySelector(".voteMain").style.display="none";
             }
         } catch (err) {
                 //document.getElementById("warn-vote").style.display="block";
                 if(err.message.includes("revert")){
                     document.getElementById("warn-vote").style.display="block";
+                    setTimeout( ()=>{
+                    setBool(true)
+                    document.querySelector(".voteMain").style.display="none";
+                    }, 2000
+                    )
                     setTimeout(
                         ()=>{
                             document.getElementById("warn-vote").style.display="none";
@@ -66,7 +76,7 @@ export default function Votepage() {
     <>
     <Walletinfo/>
     <ResVote/>
-    <TotalVote/>
+    {bool&&<TotalVote/>}
     <div className='voteMain'>
         <div id='sideii'>
                 <div>Vote your preferred choice!</div>

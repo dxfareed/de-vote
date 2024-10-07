@@ -1,5 +1,6 @@
 {
-  "name": "arbfrnt",
+  "homepage": "https://dxfareed.github.io/deVote/",
+  "name": "devote",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,6 +27,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "@wagmi/cli": "latest",
     "buffer": "^6.0.3",
+    "gh-pages": "^6.1.1",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
   }
