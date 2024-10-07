@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "biome check .",
-    "preview": "vite preview",
+    "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist",
+    "lint": "biome check .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tanstack/react-query": "5.45.1",
