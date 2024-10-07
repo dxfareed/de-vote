@@ -9,6 +9,7 @@ export default function ResVote() {
     try{
         contract.methods.totalVote().call().then(
             (res)=>{
+                //@ts-ignore
                 setVal(res.toString())
             }
         )

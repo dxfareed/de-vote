@@ -1,7 +1,7 @@
 //import React from 'react'
-import {useAccount,useConnect, useDisconnect } from 'wagmi'
+import {useAccount } from 'wagmi'
 export default function StatusAcc() {
-    const {address, status} = useAccount();
+    const {status} = useAccount();
   return (
     <div className='status-cont'>
        { status==='connecting' && <div>connecting</div>}

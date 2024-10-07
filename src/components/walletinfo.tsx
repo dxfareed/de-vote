@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAccount} from 'wagmi'
 import WalletDisconnect from './WalletDisconnect';
 export default function Walletinfo() {

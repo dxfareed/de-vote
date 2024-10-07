@@ -1,8 +1,6 @@
-import React from 'react'
-import {useAccount,useConnect, useDisconnect } from 'wagmi'
+import {useConnect} from 'wagmi'
 export default function ContWallet() {
-    const { connectors, connect, status, error } = useConnect()
-    const { disconnect } = useDisconnect()
+    const { connectors, connect} = useConnect()
   return (
     <div>
         <div>

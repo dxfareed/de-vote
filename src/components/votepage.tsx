@@ -23,6 +23,7 @@ export default function Votepage() {
         const ca = '0x72D9739E2a043020c365908Ea7BE5b5056F449Bc';
         //const provider = window.ethereum;
         if (window.ethereum.providers) {
+            //@ts-ignore
             const provider = window.ethereum.providers.find(p => p.isMetaMask);
             const web3ins = new Web3(provider);
             setWeb3(web3ins);

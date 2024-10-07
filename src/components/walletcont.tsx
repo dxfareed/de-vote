@@ -1,10 +1,8 @@
-import {useAccount,useConnect, useDisconnect } from 'wagmi'
+import {useConnect } from 'wagmi'
 //import React from 'react'
 
 export default function WalletCont() {
-    const {address, status} = useAccount();
-    const { connectors, connect, error } = useConnect()
-    const { disconnect } = useDisconnect()
+    const { connectors, connect } = useConnect();
   return (
     <div className="wall-cont">
       <div className='info-text'>

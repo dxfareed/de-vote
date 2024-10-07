@@ -1,4 +1,4 @@
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
+import { useAccount} from 'wagmi'
 import Nav from './components/nav'
 import Votepage from './components/votepage'
 import WalletCont from './components/walletcont'
@@ -6,10 +6,7 @@ import StatusAcc from './status'
 //import ResVote from './components/resVote'
 
 function App() {
-  const {address, status} = useAccount()
-  const { connectors, connect, error } = useConnect()
-  const { disconnect } = useDisconnect()
-
+  const {status} = useAccount()
   return (
       <>
         <Nav/>

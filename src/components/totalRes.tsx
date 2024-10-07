@@ -5,13 +5,12 @@ export default function TotalVote() {
     const web3= new Web3('https://sepolia-rollup.arbitrum.io/rpc');
     const ca='0x72D9739E2a043020c365908Ea7BE5b5056F449Bc';
     const contract= new web3.eth.Contract(abi, ca);
-    const [val, setVal]= useState(0);
     const [a, totalA] = useState(0);
     const [b, totalB] = useState(0);
-    const [info, setInfo] = useState("");
     try{
         contract.methods.totalVoteA().call().then(
             (res)=>{
+                //@ts-ignore
                 const resStr=res.toString();
                 totalA(Number(resStr));
             }
@@ -22,6 +21,7 @@ export default function TotalVote() {
     try{
         contract.methods.totalVoteB().call().then(
             (res)=>{
+                //@ts-ignore
                 const resStr=res.toString();
                 totalB(Number(resStr));
             }
