@@ -3,7 +3,8 @@ import {useConnect } from 'wagmi'
 
 export default function WalletCont() {
     const { connectors, connect } = useConnect();
-  return (
+    console.log(connectors)
+    return (
     <div className="wall-cont">
       <div className='info-text'>
             <div>deVote is a decentralized app that allow users vote their preferred choice on Chain</div>
@@ -12,7 +13,7 @@ export default function WalletCont() {
         <div className='mn-cont'>
         {
             connectors.map((connector, index) => (
-                index === 4 && (
+                index === 3 && (
                   <div
                     key={connector.uid}
                     onClick={() => connect({ connector })}
