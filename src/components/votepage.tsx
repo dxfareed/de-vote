@@ -9,14 +9,12 @@ import ResVote from './resVote'
 import Web3 from 'web3'
 import TotalVote from './totalRes';
 export default function Votepage() {
-    //const[bool, setBool]=useState(false);
     const testweb3arb= new Web3('https://sepolia-rollup.arbitrum.io/rpc');
     const {status, address} = useAccount()
     const [web3, setWeb3]= useState(new Web3);
     const { connectors, connect, error } = useConnect()
    setTimeout(()=>{
         document.getElementById("sideii").style.display="none";
-        //setBool(true);
     },3000)
     const voteFunc = async (param)=> {
         const ca = '0x72D9739E2a043020c365908Ea7BE5b5056F449Bc';
