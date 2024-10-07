@@ -76,14 +76,18 @@ export default function Votepage() {
                     //@ts-ignore
                     if(window.innerWidth>510){
                         //@ts-ignore
+                        document.getElementById("warn-votDesktop").style.display="block";
+                        //@ts-ignore
                         document.getElementById("warn-vote").style.display="none";
                     }
                     else{
                         //@ts-ignore
                         document.getElementById("warn-vote").style.display="block";
+                        //@ts-ignore
+                        document.getElementById("warn-votDesktop").style.display="none";
                     }
                     //@ts-ignore
-                    document.getElementById("warn-votDesktop").style.display="block";
+                    
                     setTimeout( ()=>{
                     setBool(true)
                     //@ts-ignore
@@ -109,7 +113,7 @@ export default function Votepage() {
     <Walletinfo/>
     <ResVote/>
     {bool&&<TotalVote/>}
-    <div id='warn-votDesktop'>User voted already!</div>
+    <div id='warn-votDesktop'>User voted already!!!</div>
     <div id='sideiii'>
         <div id="subsideDesktop">
                 <div style={{textAlign:"center"}}>Vote your preferred choice!</div>
