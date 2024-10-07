@@ -2,16 +2,15 @@
 import { useState } from 'react'
 import driod from './images/DRIODimages.png' 
 import apple from './images/IPHdownload.png'
-import { useAccount, useConnect, useDisconnect } from 'wagmi'
-import WalletCont from './walletcont'
-import Walletinfo from './walletinfo'
-import WalletDisconnect from './WalletDisconnect'
+import { useAccount, useConnect} from 'wagmi';
+import Walletinfo from './walletinfo';
 import abi from './abi.json'
 import ResVote from './resVote'
 import Web3 from 'web3'
+import TotalVote from './totalRes';
 export default function Votepage() {
     //const[bool, setBool]=useState(false);
-    const testweb3arb= new Web3('https://sepolia-rollup-sequencer.arbitrum.io/rpc');
+    const testweb3arb= new Web3('https://sepolia-rollup.arbitrum.io/rpc');
     const {status, address} = useAccount()
     const [web3, setWeb3]= useState(new Web3);
     const { connectors, connect, error } = useConnect()
@@ -19,30 +18,57 @@ export default function Votepage() {
         document.getElementById("sideii").style.display="none";
         //setBool(true);
     },3000)
-    const voteFunc = (param)=> {
-        const ca = '0xD34b14F2ee84904066e69b04777bb533a2AfD7b7';
-        const provider = window.ethereum;
-        ///setWeb3(new Web3(provider));  
-        const contract = new testweb3arb.eth.Contract(abi, ca);
+    const voteFunc = async (param)=> {
+        const ca = '0x72D9739E2a043020c365908Ea7BE5b5056F449Bc';
+        //const provider = window.ethereum;
+        if (window.ethereum.providers) {
+            const provider = window.ethereum.providers.find(p => p.isMetaMask);
+            const web3ins = new Web3(provider);
+            setWeb3(web3ins);
+        } else {
+            const provider = window.ethereum;
+            const web3ins = new Web3(provider);
+            setWeb3(web3ins);
+        }
+        //setWeb3(new Web3(provider));  
+        /*const contract = new web3.eth.Contract(abi, ca);
         try {
-            if(param==="a"){
-            contract.methods.addVoteA("a").send(
+            await contract.methods.addList(val).send(
                 { from: address }
             );
-        }
+        } catch (err) {
+            console.error('Error occurred:', err);
+        }*/
+        const contract = new web3.eth.Contract(abi, ca);
+        try {
+            if(param==="a" ){
+            await contract.methods.addVoteA("a").send(
+                { from: address, gas: 200000}
+            );
+           }
             else if(param==="b"){
-                contract.methods.addVoteB("b").send(
-                    { from: address }
+              await contract.methods.addVoteB("b").send(
+               { from: address, gas: 200000}
                 );
             }
         } catch (err) {
-            console.error('Error occurred:', err);
+                //document.getElementById("warn-vote").style.display="block";
+                if(err.message.includes("revert")){
+                    document.getElementById("warn-vote").style.display="block";
+                    setTimeout(
+                        ()=>{
+                            document.getElementById("warn-vote").style.display="none";
+                        }, 5000
+                    )
+                }
+            console.error('Error here :', err);
         }
     }
     return (
     <>
     <Walletinfo/>
     <ResVote/>
+    <TotalVote/>
     <div className='voteMain'>
         <div id='sideii'>
                 <div>Vote your preferred choice!</div>
@@ -51,6 +77,7 @@ export default function Votepage() {
                     <div>LFG!!!</div>
                 </div>
         </div>
+        <div id='warn-vote'>User voted already!</div>
         <div className='vote-A'>
             <div className='driod-div'>
                 <img src={driod} className='driod-image'/>

@@ -40,7 +40,7 @@
   .vote-A{
     /* background-color: rgba(255, 255, 255, 0.87); */
     height: 35%;
-    margin-top: 20%;
+    margin-top: 10%;
     color: #181818;
     width: 300px;
     display: flex;
@@ -82,7 +82,7 @@
     text-align: center;
     padding: 13px 0;
     font-size: 19px;
-    margin-top: 44%;
+    margin-top: 45%;
   }
   .info-text{
     margin-top: 10%;
@@ -124,5 +124,42 @@
     padding: 10px 15px 10px 5px;
     font-size: 22px;
     font-weight: 900;
+  }
+  #warn-vote{
+    margin-top: 15px;
+    color: red;
+    font-size: 20px;
+    display: none;
+  }
+  .voteMain{
+    display: none;
+  }
+  .total{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+    font-size: 20px;
+  }
+  .driod-info{
+    background-color: white;
+    color: black;
+    margin-bottom: 50px;
+    width: 220px;
+    padding: 20px 25px 20px 6px;
+    border-radius: 9px 9px 0 0;
+    font-size: 19px;
+  }
+  .apple-info{
+    background-color: white;
+    color: black;
+    padding: 20px 19px 20px 6px;
+    width: 220px;
+    border-radius: 9px 9px 0 0;
+  }
+  #num{
+    font-weight: 800;
+    font-size: 25px;
   }
 }
