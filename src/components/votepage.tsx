@@ -1,22 +1,24 @@
 //import React from 'react'
-import { useState } from 'react'
-import driod from './images/DRIODimages.png' 
-import apple from './images/IPHdownload.png'
-import { useAccount, useConnect} from 'wagmi';
+import { useState } from 'react';
+import driod from './images/DRIODimages.png';
+import apple from './images/IPHdownload.png';
+import { useAccount} from 'wagmi';
 import Walletinfo from './walletinfo';
-import abi from './abi.json'
-import ResVote from './resVote'
-import Web3 from 'web3'
+import abi from './abi.json';
+import ResVote from './resVote';
+import Web3 from 'web3';
 import TotalVote from './totalRes';
 export default function Votepage() {
+    //@ts-ignore
     const testweb3arb= new Web3('https://sepolia-rollup.arbitrum.io/rpc');
-    const {status, address} = useAccount()
+    const {address} = useAccount()
     const [bool, setBool] = useState(false)
     const [web3, setWeb3]= useState(new Web3);
-    const { connectors, connect, error } = useConnect()
    setTimeout(()=>{
+    //@ts-ignore
         document.getElementById("sideii").style.display="none";
     },3000)
+    //@ts-ignore
     const voteFunc = async (param)=> {
         const ca = '0x72D9739E2a043020c365908Ea7BE5b5056F449Bc';
         //const provider = window.ethereum;
@@ -42,29 +44,37 @@ export default function Votepage() {
         try {
             if(param==="a" ){
             await contract.methods.addVoteA("a").send(
-                { from: address, gas: 200000}
+             //@ts-ignore
+            { from: address, gas: 200000}
             );
             setBool(true)
+            //@ts-ignore
             document.querySelector(".voteMain").style.display="none";
            }
             else if(param==="b"){
               await contract.methods.addVoteB("b").send(
+                //@ts-ignore
                { from: address, gas: 200000}
                 );
                 setBool(true)
+                //@ts-ignore
                 document.querySelector(".voteMain").style.display="none";
             }
         } catch (err) {
                 //document.getElementById("warn-vote").style.display="block";
+                //@ts-ignore
                 if(err.message.includes("revert")){
+                    //@ts-ignore
                     document.getElementById("warn-vote").style.display="block";
                     setTimeout( ()=>{
                     setBool(true)
+                    //@ts-ignore
                     document.querySelector(".voteMain").style.display="none";
                     }, 2000
                     )
                     setTimeout(
                         ()=>{
+                            //@ts-ignore
                             document.getElementById("warn-vote").style.display="none";
                         }, 5000
                     )
