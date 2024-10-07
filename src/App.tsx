@@ -3,6 +3,7 @@ import Nav from './components/nav'
 import Votepage from './components/votepage'
 import WalletCont from './components/walletcont'
 import StatusAcc from './status'
+//import ResVote from './components/resVote'
 
 function App() {
   const {address, status} = useAccount()
@@ -12,7 +13,7 @@ function App() {
   return (
       <>
         <Nav/>
-        {status ==="connected"&&<Votepage/>}
+        {status ==="connected" && <Votepage/>}
         {status === "disconnected" && <WalletCont/>}
         <StatusAcc/>
     {/* <>
